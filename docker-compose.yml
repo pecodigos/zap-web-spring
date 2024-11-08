@@ -1,0 +1,30 @@
+services:
+  zap-web-spring:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      - spring.env
+    ports:
+      - "8080:8080"
+    networks:
+      - zap-network
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres
+    env_file:
+      - spring.env
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - zap-network
+
+networks:
+  zap-network:
+
+volumes:
+  postgres_data:
