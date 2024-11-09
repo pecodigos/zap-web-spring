@@ -1,11 +1,8 @@
 package com.pecodigos.zapweb.chats.controller;
 
 import com.pecodigos.zapweb.chats.dtos.MessageDTO;
-import com.pecodigos.zapweb.chats.dtos.mappers.MessageMapper;
-import com.pecodigos.zapweb.chats.repositories.MessageRepository;
 import com.pecodigos.zapweb.chats.services.MessageService;
 import lombok.AllArgsConstructor;
-import org.apache.coyote.Response;
 import org.springframework.http.ResponseEntity;
 import org.springframework.messaging.handler.annotation.DestinationVariable;
 import org.springframework.messaging.handler.annotation.MessageMapping;
@@ -15,8 +12,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.UUID;
-
-import static java.util.stream.Collectors.toList;
 
 @RestController
 @RequestMapping("/api/messages")
@@ -44,4 +39,3 @@ public class MessageController {
         return ResponseEntity.ok(savedMessage);
     }
 }
-

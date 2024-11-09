@@ -1,7 +1,6 @@
 package com.pecodigos.zapweb.chats.services;
 
 import com.pecodigos.zapweb.chats.dtos.MessageDTO;
-import com.pecodigos.zapweb.chats.dtos.mappers.ChatRoomMapper;
 import com.pecodigos.zapweb.chats.dtos.mappers.MessageMapper;
 import com.pecodigos.zapweb.chats.repositories.ChatRoomRepository;
 import com.pecodigos.zapweb.chats.repositories.MessageRepository;
