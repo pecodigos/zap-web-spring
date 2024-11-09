@@ -1,6 +1,7 @@
 package com.pecodigos.zapweb.users.service;
 
 import com.pecodigos.zapweb.exceptions.UserAlreadyExistsException;
+import com.pecodigos.zapweb.users.dtos.PublicUserListDTO;
 import com.pecodigos.zapweb.users.dtos.UserDTO;
 import com.pecodigos.zapweb.enums.Role;
 import com.pecodigos.zapweb.users.dtos.mapper.UserMapper;
@@ -28,10 +29,10 @@ public class UserService {
                 .orElseThrow(() -> new NoSuchElementException("No user with that name."));
     }
 
-    public List<UserDTO> list() {
+    public List<PublicUserListDTO> list() {
         return userRepository.findAll()
                 .stream()
-                .map(userMapper::toDto)
+                .map(userMapper::toListDto)
                 .toList();
     }
 
@@ -94,3 +95,4 @@ public class UserService {
         userRepository.deleteById(id);
     }
 }
+

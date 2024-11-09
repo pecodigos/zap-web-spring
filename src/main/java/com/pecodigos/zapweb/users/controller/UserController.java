@@ -1,6 +1,7 @@
 package com.pecodigos.zapweb.users.controller;
 
 import com.pecodigos.zapweb.security.auth.JwtUtil;
+import com.pecodigos.zapweb.users.dtos.PublicUserListDTO;
 import com.pecodigos.zapweb.users.dtos.UserDTO;
 import com.pecodigos.zapweb.users.service.UserService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -30,7 +31,7 @@ public class UserController {
 
     @Operation(summary = "Get all users", description = "Retrieves a list of all users")
     @GetMapping("/")
-    public ResponseEntity<List<UserDTO>> list() {
+    public ResponseEntity<List<PublicUserListDTO>> list() {
         return ResponseEntity.ok().body(userService.list());
     }
 
@@ -47,3 +48,4 @@ public class UserController {
         return ResponseEntity.noContent().build();
     }
 }
+

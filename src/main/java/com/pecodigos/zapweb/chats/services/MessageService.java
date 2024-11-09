@@ -19,18 +19,9 @@ public class MessageService {
     private final MessageRepository messageRepository;
     private final MessageMapper messageMapper;
     private final ChatRoomRepository chatRoomRepository;
-    private final ChatRoomMapper chatRoomMapper;
 
-    public void getMessage(UUID id) {
-        messageRepository.findById(id)
-                .map(messageMapper::toDto)
-                .orElseThrow(() -> new NoSuchElementException("No chat found with that id."));
-    }
-
-    public List<MessageDTO> getAllMessages() {
-        return messageRepository.findAll()
-                .stream().map(messageMapper::toDto)
-                .toList();
+    public List<MessageDTO> getMessagesByChatRoom(UUID chatRoomId) {
+        return messageRepository.findByChatRoomId(chatRoomId);
     }
 
     public MessageDTO saveMessage(MessageDTO messageDTO) {
