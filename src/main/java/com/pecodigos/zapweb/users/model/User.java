@@ -29,11 +29,11 @@ public class User implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
-    @Length(min = 5, max = 120)
+    @Length(min = 3, max = 120)
     @Column(length = 120, nullable = false)
     private String name;
 
-    @Length(min = 7, max = 30)
+    @Length(min = 5, max = 30)
     @Column(length = 30, nullable = false)
     private String username;
 
@@ -47,7 +47,7 @@ public class User implements Serializable {
     private String password;
 
     @Enumerated(EnumType.STRING)
-    @Column(length = 10, nullable = false)
+    @Column(nullable = false)
     private Role role;
 
     @CreationTimestamp
